@@ -50,6 +50,9 @@ body {
 		list-style-type: none;
 		display: flex;
 	}
+	li:hover {
+		background-color: hsl(50, 100%, 25%);
+	}
 	a {
 		color: inherit;
 		text-decoration: none;

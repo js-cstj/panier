@@ -1,3 +1,5 @@
+import panier from "../panier.js";
+console.log(panier);
 /**
  * @module App
  */
@@ -9,11 +11,19 @@ export default class App {
 		var app = document.getElementById("app");
 		var lienPanier = document.getElementById("lien-panier");
 		lienPanier.addEventListener("click", e => {
-			document.body.classList.toggle("panier");
+			document.body.classList.add("panier");
 		});
 		var close = document.querySelector("#panier > .close");
 		close.addEventListener("click", e => {
-			document.body.classList.toggle("panier");
+			document.body.classList.remove("panier");
+		});
+		var backdrop = document.querySelector("#backdrop");
+		backdrop.addEventListener("click", e => {
+			document.body.classList.remove("panier");
+		});
+		var panier = document.querySelector("#panier");
+		panier.addEventListener("click", e => {
+			e.stopPropagation();
 		});
 	}
 	/**

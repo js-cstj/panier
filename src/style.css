@@ -75,6 +75,10 @@ body {
   display: flex;
 }
 
+#app > nav li:hover {
+  background-color: #806a00;
+}
+
 #app > nav a {
   color: inherit;
   text-decoration: none;
