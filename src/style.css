@@ -161,15 +161,19 @@ body.panier #interface {
           box-shadow: .5em 1em 2em #0008;
 }
 
-#panier:hover::before {
-  color: black;
-}
-
-#panier::before {
-  content: "\A0×";
+#panier span.close {
   position: absolute;
   right: .5em;
   top: .5em;
+}
+
+#panier span.close:hover::before {
+  color: black;
+}
+
+#panier span.close::before {
+  content: "×";
+  display: block;
   border: 1px solid;
   color: #ccc;
   width: 1em;
@@ -177,7 +181,7 @@ body.panier #interface {
   text-align: center;
   border-radius: 100%;
   line-height: .75em;
-  letter-spacing: -.45em;
+  text-indent: .1em;
 }
 
 #panier h1 {

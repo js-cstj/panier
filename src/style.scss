@@ -118,22 +118,26 @@ body.panier {
 	display: grid;
 	position: relative;
 	box-shadow: .5em 1em 2em #0008;
-	&:hover::before {
-		color:black
-	}
-	&::before {
-		content:"\A0×";
+	span.close {
 		position: absolute;
 		right: .5em;
 		top:.5em;
-		border: 1px solid;
-		color: #ccc;
-		width: 1em;
-		height: 1em;
-		text-align: center;
-		border-radius: 100%;
-		line-height: .75em;
-		letter-spacing: -.45em;
+		&:hover::before {
+			color:black
+		}
+		
+		&::before {
+			content:"×";
+			display: block;
+			border: 1px solid;
+			color: #ccc;
+			width: 1em;
+			height: 1em;
+			text-align: center;
+			border-radius: 100%;
+			line-height: .75em;
+			text-indent: .1em;
+		}
 	}
 	h1 {
 		margin: 0;
