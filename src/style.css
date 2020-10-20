@@ -67,12 +67,14 @@ body {
 }
 
 #app > nav ul {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  width: 1200px;
+  -ms-grid-columns: (auto)[6];
+      grid-template-columns: repeat(6, auto);
 }
 
 #app > nav li:hover {
@@ -214,7 +216,6 @@ body.panier #interface {
 #panier .item img {
   width: 100%;
   grid-row: 1 / -1;
-  border: 1px solid black;
 }
 
 #panier .item div.titre {
@@ -252,5 +253,17 @@ body.panier #interface {
   -ms-grid-column: 4;
   grid-column: 4;
   text-align: right;
+}
+
+#panier .grand-total {
+  text-align: right;
+  font-size: larger;
+  font-weight: bold;
+  margin-top: .5em;
+}
+
+#panier .grand-total::before {
+  content: "Grand total : ";
+  font-weight: normal;
 }
 /*# sourceMappingURL=style.css.map */

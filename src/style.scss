@@ -45,10 +45,12 @@ body {
 	color: white;
 	font-weight: bold;
 	ul {
-		margin: 0;
+		margin: 0 auto;
 		padding: 0;
 		list-style-type: none;
-		display: flex;
+		display: grid;
+		width: 1200px;
+		grid-template-columns: repeat(6, auto);
 	}
 	li:hover {
 		background-color: hsl(50, 100%, 25%);
@@ -161,7 +163,7 @@ body.panier {
 		img {
 			width: 100%;
 			grid-row: 1 / -1;
-			border: 1px solid black;
+			// border: 1px solid black;
 		}
 		div.titre {
 			grid-row: 1;
@@ -187,6 +189,16 @@ body.panier {
 			grid-row: 3;
 			grid-column: 4;
 			text-align: right;
+		}
+	}
+	.grand-total {
+		text-align: right;
+		font-size: larger;
+		font-weight: bold;
+		margin-top: .5em;
+		&::before {
+			content: "Grand total : ";
+			font-weight: normal;
 		}
 	}
 }
