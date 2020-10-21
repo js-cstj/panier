@@ -92,12 +92,12 @@ div.couche {
 	}
 }
 
-body:not(.panier) {
+body:not(.affiche-panier) {
 	#backdrop {
 		display: none;
 	}
 }
-body.panier {
+body.affiche-panier {
 	#interface {
 		filter: blur(2px);
 	}	

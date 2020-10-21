@@ -130,11 +130,11 @@ div.couche .contenu {
   padding: 2em;
 }
 
-body:not(.panier) #backdrop {
+body:not(.affiche-panier) #backdrop {
   display: none;
 }
 
-body.panier #interface {
+body.affiche-panier #interface {
   -webkit-filter: blur(2px);
           filter: blur(2px);
 }

@@ -1,13 +1,26 @@
-# application-base
-Application de base pour débuter un projet
+# Devoir 2
 
-## Description
-Description à venir
+Travail à faire en équipe de 2
 
-## Particularités
+Un panier d'épicerie apparait lorsque l'on clique sur le bouton `panier` et disparait lorsque l'on clique sur le `x`. Par contre les données qu'il contient ne sont pas celles auxquelles on s'attendrait.
 
-- Compléter
+Pouvez-vous faire en sorte que les données contenues dans le fichier `panier1.js` s'affiche à la place du lorem ipsum?
 
-## Variantes et ajouts possibles
+## Deux approches
+Dans un premier temps, vous devrez de remplacer les données du fichier `panier1.js` soient placées dans le HTML existant. Par contre, cette méthode ne serait pas adéquate pour le 2e client (`panier2.js`) qui a choisi trois articles.
 
-- Compléter
+Dans un deuxième temps, vous devrez donc générer le panier en entier avec les bonnes données. Cette méthode devrait permettre d'avoir autant d'items que l'on veut dans son panier.
+
+## Notions couvertes
+- Fonctions
+- Consultation du DOM
+- Modification du DOM (Rite de passage)
+- Utilisation de données complexes
+- Boucle qui parcourt un tableau
+
+## Fonctions à produire pour la 2e approche
+
+- `updatePanier` : Méthode qui remplace le panier HTML actuel par un nouveau panier généré à partir de l'objet panier donné en paramètre
+- `html_panier` : Retourne un nouveau panier HTML en fonction de l'objet panier fourni
+- `html_item` : Retourne une rangée (un produit) du panier HTML
+- `grandTotal` : Retourne le grand total des articles du panier
