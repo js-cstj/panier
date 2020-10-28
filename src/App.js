@@ -9,18 +9,18 @@ export default class App {
 	 */
 	static main() {
 		var app = document.getElementById("app");
-		this.ajouterEvenements(panier1);
+		this.ajouterEvenements(panier2);
 	}
 	/**
 	 * Méthode qui remplace le panier HTML actuel par un nouveau panier généré à partir de l'objet panier donné en paramètre
-	 * @param {object} panier Le panier à faire afficher
+	 * @param {object} objPanier Le panier à faire afficher
 	 * @returns undefined Ne retourne rien
 	 */
-	static updatePanier(panier) {
+	static updatePanier(objPanier) {
 		// On récupère le panier HTML désuet
 		var vieux = document.getElementById("panier");
 		// On génère un nouveau panier HTML
-		var nouveau = this.html_panier(panier);
+		var nouveau = this.html_panier(objPanier);
 		// On remplace le vieux par le nouveau
 		vieux.parentElement.replaceChild(nouveau, vieux);
 	}
