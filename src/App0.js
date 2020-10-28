@@ -7,7 +7,6 @@ export default class App {
 	 * Méthode principale. Sera appelée après le chargement de la page.
 	 */
 	static main() {
-		var app = document.getElementById("app");
 		this.ajouterEvenements(panier1);
 	}
 	/**
@@ -16,27 +15,6 @@ export default class App {
 	 * @returns undefined Ne retourne rien
 	 */
 	static updatePanier(objPanier) {
-		var gTotal = 0;
-		for (let i = 0; i < objPanier.achats.length; i += 1) {
-			var achat = objPanier.achats[i];
-			var produit = objPanier.produits[achat.numero];
-			var img = document.querySelector("#panier>div.item:nth-of-type("+(i+1)+")>img");
-			img.src = produit.image;
-			var titre = document.querySelector("#panier>div.item:nth-of-type("+(i+1)+")>.titre");
-			titre.innerHTML = produit.titre;
-			var description = document.querySelector("#panier>div.item:nth-of-type("+(i+1)+")>.description");
-			description.innerHTML = produit.description;
-			var prix = document.querySelector("#panier>div.item:nth-of-type("+(i+1)+")>.prix");
-			prix.innerHTML = produit.prix.toFixed(2) + " $";
-			var quantite = document.querySelector("#panier>div.item:nth-of-type("+(i+1)+")>.quantite");
-			quantite.innerHTML = achat.quantite;
-			var ttl = achat.quantite * produit.prix;
-			var total = document.querySelector("#panier>div.item:nth-of-type("+(i+1)+")>.total");
-			total.innerHTML = ttl.toFixed(2) + " $";
-			gTotal += ttl;
-		}
-		var grandTotal = document.querySelector("#panier>div.grand-total");
-		grandTotal.innerHTML = gTotal.toFixed(2) + " $";
 	}
 	/**
 	 * Méthode qui ajoute les événements relatifs à l'ouverture et à la fermeture du panier

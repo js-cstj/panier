@@ -1,6 +1,8 @@
 # Devoir 2
 
-Travail à faire en équipe de 2
+Travail à faire en équipe
+Durée : 1 semaine
+Compte pour 5% (ou 10%) de la note finale
 
 Un panier d'épicerie apparait lorsque l'on clique sur le bouton `panier` et disparait lorsque l'on clique sur le `x`. Par contre les données qu'il contient ne sont pas celles auxquelles on s'attendrait.
 

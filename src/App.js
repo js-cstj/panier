@@ -1,14 +1,19 @@
 import panier1 from "../panier1.js";
 import panier2 from "../panier2.js";
 /**
- * @module App
+ * IDENTIFICATION DE L'ÉQUIPE
+ * ÉLÈVE :
+ * ÉLÈVE :
+ * ÉLÈVE :
  */
 export default class App {
 	/**
 	 * Méthode principale. Sera appelée après le chargement de la page.
 	 */
 	static main() {
-		var app = document.getElementById("app");
+		/**************************************************************
+		 * IMPORTANT! POUR CHANGER DE PANIER, CHANGER LA VARIABLE ICI
+		 */
 		this.ajouterEvenements(panier2);
 	}
 	/**
@@ -18,11 +23,8 @@ export default class App {
 	 */
 	static updatePanier(objPanier) {
 		// On récupère le panier HTML désuet
-		var vieux = document.getElementById("panier");
 		// On génère un nouveau panier HTML
-		var nouveau = this.html_panier(objPanier);
-		// On remplace le vieux par le nouveau
-		vieux.parentElement.replaceChild(nouveau, vieux);
+		// On remplace le vieux par le nouveau avec replaceChild
 	}
 	/**
 	 * Retourne un nouveau panier HTML en fonction de l'objet panier fourni
@@ -32,24 +34,10 @@ export default class App {
 	static html_panier(objPanier) {
 		var resultat;
 		// Panier
-		resultat = document.createElement("div");
-		resultat.id = "panier";
 		// Bouton close
-		var close = resultat.appendChild(document.createElement("span"));
-		close.classList.add("close");
 		// Gros titre
-		var h1 = resultat.appendChild(document.createElement("h1"));
-		h1.innerHTML = "Mon panier";
 		// Items (boucle)
-		for (let i = 0; i < objPanier.achats.length; i += 1) {
-			let achat = objPanier.achats[i];
-			let produit = objPanier.produits[achat.numero];
-			resultat.appendChild(this.html_item(produit, achat.quantite));
-		}
 		// Grand total
-		var gTotal = resultat.appendChild(document.createElement("div"));
-		gTotal.classList.add("grand-total");
-		gTotal.innerHTML = this.grandTotal(objPanier).toFixed(2) + " $";
 		return resultat;
 	}
 	/**
@@ -60,33 +48,12 @@ export default class App {
 	 */
 	static html_item(objProduit, quantite) {
 		var resultat;
-		resultat = document.createElement("div");
-		resultat.classList.add("item");
 		// Image
-		var img = resultat.appendChild(document.createElement("img"));
-		img.src = objProduit.image;
-		img.alt = objProduit.titre;
 		// Titre
-		var titre = resultat.appendChild(document.createElement("div"));
-		titre.classList.add("titre");
-		titre.innerHTML = objProduit.titre;
 		// Description
-		var description = resultat.appendChild(document.createElement("div"));
-		description.classList.add("description");
-		description.innerHTML = objProduit.description;
 		// Prix
-		var prix = resultat.appendChild(document.createElement("div"));
-		prix.classList.add("prix");
-		prix.innerHTML = objProduit.prix.toFixed(2) + " $";
 		// Quantité
-		var divQuantite = resultat.appendChild(document.createElement("div"));
-		divQuantite.classList.add("quantite");
-		divQuantite.innerHTML = quantite;
 		// Total
-		var total = objProduit.prix * quantite;
-		var divTotal = resultat.appendChild(document.createElement("div"));
-		divTotal.classList.add("total");
-		divTotal.innerHTML = total.toFixed(2) + " $";
 		return resultat;
 	}
 	/**
@@ -96,11 +63,6 @@ export default class App {
 	 */
 	static grandTotal(objPanier) {
 		var resultat = 0;
-		for (let i = 0; i < objPanier.achats.length; i += 1) {
-			let achat = objPanier.achats[i];
-			let produit = objPanier.produits[achat.numero];
-			resultat += produit.prix * achat.quantite;
-		}
 		return resultat;
 	}
 	/**
