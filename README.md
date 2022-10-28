@@ -1,17 +1,23 @@
 # Devoir 2
 
-Travail à faire en équipe
-Durée : 1 semaine
-Compte pour 5% (ou 10%) de la note finale
+- Travail individuel
+- Durée : 1 semaine
+- Compte pour 5% (ou 10%) de la note finale
+- Renommer le dossier de travail pour y inclure votre code de nomenclature __avant__ de le zipper et de le remettre dans [remise.cstj.qc.ca](https://remise.cstj.qc.ca)
 
 Un panier d'épicerie apparait lorsque l'on clique sur le bouton `panier` et disparait lorsque l'on clique sur le `x`. Par contre les données qu'il contient ne sont pas celles auxquelles on s'attendrait.
 
 Pouvez-vous faire en sorte que les données contenues dans le fichier `panier1.js` s'affiche à la place du lorem ipsum?
 
 ## Deux approches
-Dans un premier temps, vous devrez de remplacer les données du fichier `panier1.js` soient placées dans le HTML existant. Par contre, cette méthode ne serait pas adéquate pour le 2e client (`panier2.js`) qui a choisi trois articles. Pour cette approche, vous devez travailler dans le fichier `App0.js` et exécuter `index0.html` pour visionner le résultat.
-
-Dans un deuxième temps, vous devrez donc générer le panier en entier avec les bonnes données. Cette méthode devrait permettre d'avoir autant d'items que l'on veut dans son panier.
+1. Modifier le panier
+   - Dans un premier temps, vous devez __remplacer__ le contenu des balises HTML existantes par les données correspondantes se trouvant dans le fichier `panier1.js` (voir l'exercice "Sorciere"). 
+   - Par contre, cette méthode ne serait pas adéquate pour le 2e client (`panier2.js`) qui a choisi trois articles. 
+   - Pour cette approche, vous devez travailler dans le fichier `App0.js` et exécuter `index0.html` pour visionner le résultat.
+1. Recréer le panier
+   - Dans un deuxième temps, vous devrez donc __générer__ le panier en entier avec les bonnes données. 
+   - Cette méthode devrait permettre d'avoir autant d'items que l'on veut dans son panier.
+   - Pour cette approche, vous devez travailler dans le fichier `App.js` et exécuter `index.html` pour visionner le résultat.
 
 ## Notions couvertes
 - Fonctions
