@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mon propre panier</title>
+	<style>
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+		a {
+			color: inherit;
+		}
+		h1 {
+			/* margin: 0; */
+			text-align: center;
+		}
+
+		body {
+			margin: 0;
+			padding: 1em;
+			font-family: sans-serif;
+			display: grid;
+			grid-template-rows: auto 1fr;
+			background-color: #333;
+			color: #eee;
+		}
+
+		textarea {
+			box-sizing: border-box;
+			border: 2px solid black;
+			outline: none;
+			resize: none;
+			margin: 1em;
+			padding: 1em;
+		}
+	</style>
+	<script type="module">
+		import panier0 from '../panier1.js';
+		function shuffleArray(array) {
+			array = array.slice(); // Copy array
+			for (let i = array.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[array[i], array[j]] = [array[j], array[i]]; // Swap elements at i and j
+			}
+			return array;
+		}
+		var produits = panier0.produits;
+		var nb = Math.floor(Math.random() * 2) + 3;
+		var numeros = shuffleArray(Object.keys(produits)).slice(0, nb);
+		var achats = [];
+		numeros.forEach(numero => {
+			achats.push({ numero: numero, quantite: Math.floor(Math.random() ** 2 * 10) + 1 });
+		});
+		var panier = { achats: achats, produits: produits };
+		console.log(panier);
+		var resultat = document.body.appendChild(document.createElement("textarea"));
+		resultat.addEventListener("focus", () => resultat.select());
+		resultat.value = "export default " + JSON.stringify(panier, null, 2);
+		document.getElementById("dl").href = "data:text/javascript;charset=utf-8," + encodeURIComponent(resultat.value);
+	</script>
+</head>
+
+<body>
+	<h1>Copiez votre panier personnalisé &darr; (ou <a id="dl" href="" download="panier2.js">téléchargez-le</a>)</h1>
+</body>
+
+</html>
