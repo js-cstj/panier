@@ -1,10 +1,10 @@
-import panier1 from "../panier1.js";
+import panier from "../panier1.js";
 export default class App {
 	/**
 	 * Méthode principale. Sera appelée après le chargement de la page.
 	 */
 	static main() {
-		this.ajouterEvenements(panier1);
+		this.ajouterEvenements(panier);
 	}
 	/**
 	 * Méthode qui met à jour les informations du panier existant
