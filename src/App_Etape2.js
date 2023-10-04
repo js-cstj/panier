@@ -4,12 +4,12 @@
 // import panier from "../panier1.js";
 import panier from "../panier2.js";
 // import panier from "../panier3.js";	// Créer un panier3.js avec '/MONCLIENT/index.html'
+
 export default class App {
 	/**
 	 * Méthode principale. Sera appelée après le chargement de la page.
 	 */
 	static main() {
-		debugger;
 		this.ajouterEvenements(panier);
 	}
 	/**
@@ -20,7 +20,7 @@ export default class App {
 	static updatePanier(objPanier) {
 		// On récupère le panier HTML désuet
 		// On génère un nouveau panier HTML
-		// On remplace le vieux par le nouveau avec replaceChild
+		// On remplace le vieux par le nouveau avec replaceWith
 	}
 	/**
 	 * Retourne un nouveau panier HTML en fonction de l'objet panier fourni
@@ -93,14 +93,4 @@ export default class App {
 			}
 		})
 	}
-	/**
-	 * Méthode qui permet d'attendre le chargement de la page avant d'éxécuter le script principal
-	 * @returns undefined Ne retourne rien
-	 */
-	static init() {
-		window.addEventListener("load", () => {
-			this.main();
-		});
-	}
 }
-App.init();

@@ -1,13 +1,11 @@
-import panier1 from "../panier1.js";
-/**
- * @module App
- */
+import panier from "../panier1.js";
+
 export default class App {
 	/**
 	 * Méthode principale. Sera appelée après le chargement de la page.
 	 */
 	static main() {
-		this.ajouterEvenements(panier1);
+		this.ajouterEvenements(panier);
 	}
 	/**
 	 * Méthode qui met à jour les informations du panier existant
@@ -15,6 +13,7 @@ export default class App {
 	 * @returns undefined Ne retourne rien
 	 */
 	static updatePanier(objPanier) {
+		console.log(objPanier);
 	}
 	/**
 	 * Méthode qui ajoute les événements relatifs à l'ouverture et à la fermeture du panier
@@ -48,14 +47,4 @@ export default class App {
 			}
 		})
 	}
-	/**
-	 * Méthode qui permet d'attendre le chargement de la page avant d'éxécuter le script principal
-	 * @returns undefined Ne retourne rien
-	 */
-	static init() {
-		window.addEventListener("load", () => {
-			this.main();
-		});
-	}
 }
-App.init();

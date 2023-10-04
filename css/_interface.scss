@@ -1,0 +1,28 @@
+#interface {
+	min-height: 100%;
+	display: grid;
+	grid-template-rows: auto auto 1fr auto;
+	& > header, & > footer {
+		padding: .5em 1em;
+		background-color: hsl(var(--h), var(--s), var(--l));
+		color: hsl(var(--h2), var(--s), calc(var(--l) * 1.2));
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	& > header {
+		justify-content: center;
+		img {
+			display: block;
+		}
+		h1 {
+			margin: 0;
+		}
+	}
+	& > footer {
+		padding: 1em 2em;
+		img {
+			height: 3em;
+		}
+	}
+}

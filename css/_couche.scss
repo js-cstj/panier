@@ -1,0 +1,44 @@
+div.couche {
+	p {
+		line-height: 2;
+		margin: .5em 0;
+		text-align: justify;
+	}
+	h2 {
+		color: hsl(var(--h-2), 76%, 32%);
+		font-size: 3em;
+		margin: 0;
+		line-height: 1;
+		text-align: center;
+	}
+	.contenant {
+		width: 960px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		> * {
+			width: 100%;
+			aspect-ratio: 4 / 4;
+		}
+	}
+	img {
+		object-fit: cover;
+		object-position: center;
+	}
+	&.gauche {
+		background-color: #fff;
+	}
+	&.droite {
+		background-color: hsl(208, 100%, 97%);
+		grid-auto-flow: column-reverse;
+	}
+	.contenu {
+		display: flex;
+		flex-direction: column;
+		padding:1em 2em;
+		justify-content: space-between;
+		// &::after {
+		// 	content: "";
+		// }
+	}
+}

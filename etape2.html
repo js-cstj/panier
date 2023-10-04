@@ -5,16 +5,20 @@
 	<meta charset="UTF-8" />
 	<title>Au Bon Rabais</title>
 	<link rel="stylesheet" href="./css/style.css" />
+	<script type="module">
+		import App from "./src/App_Etape2.js";
+		App.main();
+	</script>
 </head>
 
 <body class="">
 	<div id="interface">
 		<header>
-			<h1><a href="index.html"><img src="images/logoABR.svg" alt=""></a></h1>
+			<h1><img src="images/logoABR.svg" alt=""></h1>
 		</header>
 		<nav>
 			<ul>
-				<li><a href="index.html">Accueil</a></li>
+				<li><a href="#">Accueil</a></li>
 				<li><a href="#">Produits</a></li>
 				<li><a href="#">Services</a></li>
 				<li><a href="#">Trouver un magasin</a></li>
@@ -23,16 +27,6 @@
 			</ul>
 		</nav>
 		<div class="body" id="app">
-			<div class="couche gauche" style="background-color: white;">
-				<div class="contenant">
-					<div class="contenu" style="aspect-ratio: auto;">
-						<h2><a href="etape1.html">Vers l'étape 1</a></h2>
-					</div>
-					<div class="contenu" style="aspect-ratio: auto;">
-						<h2><a href="etape2.html">Vers l'étape 2</a></h2>
-					</div>
-				</div>
-			</div>
 			<div class="couche droite">
 				<div class="contenant">
 					<div class="contenu">
@@ -59,6 +53,7 @@
 		</footer>
 
 	</div>
+	<div id="backdrop"><div id="panier"></div></div>
 </body>
 
 </html>
