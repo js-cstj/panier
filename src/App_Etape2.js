@@ -136,14 +136,4 @@ export default class App {
 			}
 		})
 	}
-	/**
-	 * Méthode qui permet d'attendre le chargement de la page avant d'éxécuter le script principal
-	 * @returns undefined Ne retourne rien
-	 */
-	static init() {
-		window.addEventListener("load", () => {
-			this.main();
-		});
-	}
 }
-App.init();
