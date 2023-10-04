@@ -1,15 +1,16 @@
-import panier1 from "../panier1.js";
-import panier2 from "../panier2.js";
-/**
- * @module App
+/**************************************************************
+ * IMPORTANT! POUR CHANGER DE PANIER, CHANGER LE FICHIER ICI
  */
+// import panier from "../panier1.js";
+import panier from "../panier2.js";
+// import panier from "../panier3.js";	// Créer un panier3.js avec '/MONCLIENT/index.html'
+
 export default class App {
 	/**
 	 * Méthode principale. Sera appelée après le chargement de la page.
 	 */
 	static main() {
-		var app = document.getElementById("app");
-		this.ajouterEvenements(panier2);
+		this.ajouterEvenements(panier);
 	}
 	/**
 	 * Méthode qui remplace le panier HTML actuel par un nouveau panier généré à partir de l'objet panier donné en paramètre

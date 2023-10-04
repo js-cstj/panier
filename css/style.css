@@ -1,0 +1,250 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
+:root {
+  --largeur: 960px;
+  --h: 50;
+  --s: 100%;
+  --l: 50%;
+  --h-2: calc(var(--h) + 145);
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+  font-family: "Overpass", sans-serif;
+  font-family: "Cairo", sans-serif;
+}
+
+body {
+  height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+#interface {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+#interface > header, #interface > footer {
+  padding: 0.5em 1em;
+  background-color: hsl(var(--h), var(--s), var(--l));
+  color: hsl(var(--h2), var(--s), calc(var(--l) * 1.2));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#interface > header {
+  justify-content: center;
+}
+#interface > header img {
+  display: block;
+}
+#interface > header h1 {
+  margin: 0;
+}
+#interface > footer {
+  padding: 1em 2em;
+}
+#interface > footer img {
+  height: 3em;
+}
+
+#app {
+  padding: 0;
+}
+
+#lien-panier a::before {
+  content: "🛒︎";
+  font-weight: normal;
+  font-size: 1.5em;
+  position: relative;
+  top: 0.1em;
+  margin-right: 0.25em;
+  line-height: 0;
+}
+
+#interface > nav {
+  background-color: hsl(var(--h), 100%, 30%);
+  color: white;
+  font-weight: bold;
+}
+#interface > nav ul {
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  width: var(--largeur);
+  grid-auto-flow: column;
+  justify-content: center;
+}
+#interface > nav li:hover {
+  background-color: hsl(var(--h-2), 100%, 25%);
+}
+#interface > nav a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  padding: 0 1em;
+}
+
+div.couche p {
+  line-height: 2;
+  margin: 0.5em 0;
+  text-align: justify;
+}
+div.couche h2 {
+  color: hsl(var(--h-2), 76%, 32%);
+  font-size: 3em;
+  margin: 0;
+  line-height: 1;
+  text-align: center;
+}
+div.couche .contenant {
+  width: var(--largeur);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+div.couche .contenant > * {
+  width: 100%;
+  aspect-ratio: 4/4;
+}
+div.couche img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+div.couche.gauche {
+  background-color: #fff;
+}
+div.couche.droite {
+  background-color: hsl(208, 100%, 97%);
+  grid-auto-flow: column-reverse;
+}
+div.couche .contenu {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em;
+  justify-content: space-between;
+}
+
+#backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(5px) saturate(0.5) contrast(0.3) brightness(0.5);
+          backdrop-filter: blur(5px) saturate(0.5) contrast(0.3) brightness(0.5);
+}
+
+body:not(.affiche-panier) #backdrop {
+  display: none;
+}
+
+#panier {
+  width: 500px;
+  background-color: white;
+  border-radius: 1em;
+  line-height: 1;
+  padding: 1em;
+  display: grid;
+  position: relative;
+  box-shadow: 0.5em 1em 2em rgba(0, 0, 0, 0.5333333333);
+}
+#panier span.close {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+}
+#panier span.close:hover::before {
+  color: black;
+}
+#panier span.close::before {
+  content: "×";
+  display: block;
+  border: 1px solid;
+  color: #ccc;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  border-radius: 100%;
+  line-height: 0.75em;
+  text-indent: 0.1em;
+}
+#panier h1 {
+  margin: 0;
+}
+#panier .item {
+  padding: 0.5em;
+  display: grid;
+  grid-template-columns: 125px repeat(3, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 0.5em 1em;
+}
+#panier .item:nth-child(even) {
+  background-color: #f0f0f0;
+}
+#panier .item:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+#panier .item img {
+  width: 100%;
+  grid-row: 1/-1;
+}
+#panier .item div.titre {
+  grid-row: 1;
+  grid-column: 2/-1;
+  font-weight: bold;
+}
+#panier .item div.description {
+  grid-row: 2;
+  grid-column: 2/-1;
+}
+#panier .item div.prix {
+  grid-row: 3;
+  grid-column: 2;
+  text-align: right;
+}
+#panier .item div.quantite {
+  grid-row: 3;
+  grid-column: 3;
+  text-align: right;
+}
+#panier .item div.total {
+  grid-row: 3;
+  grid-column: 4;
+  text-align: right;
+}
+#panier .grand-total {
+  text-align: right;
+  font-size: larger;
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+#panier .grand-total::before {
+  content: "Grand total : ";
+  font-weight: normal;
+}

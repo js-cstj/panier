@@ -1,0 +1,27 @@
+#interface > nav {
+	// font-size: 18pt;
+	background-color: hsl(var(--h), 100%, 30%);
+	color: white;
+	font-weight: bold;
+	ul {
+		margin: 0 auto;
+		padding: 0;
+		list-style-type: none;
+		display: grid;
+		width: var(--largeur);
+		grid-auto-flow: column;
+		justify-content: center;
+	}
+	li:hover {
+		background-color: hsl(var(--h-2), 100%, 25%);
+	}
+	a {
+		color: inherit;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 2em;
+		padding: 0 1em;
+	}
+}

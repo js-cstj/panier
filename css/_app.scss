@@ -1,0 +1,12 @@
+#app {
+	padding: 0;
+}
+#lien-panier a::before {
+	content: "🛒\fe0e";
+	font-weight: normal;
+	font-size: 1.5em;
+	position: relative;
+	top: .1em;
+	margin-right: .25em;
+	line-height: 0;
+}
