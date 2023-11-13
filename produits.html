@@ -7,7 +7,9 @@
 	<link rel="stylesheet" href="./css/style.css" />
 	<script type="module">
 		import App from "./src/App.js";
-		App.main();
+		console.log(location);
+		var id = location.search.slice(4);
+		App.mainModifProduit(id);
 	</script>
 </head>
 
@@ -27,7 +29,25 @@
 			</ul>
 		</nav>
 		<div class="body" id="app">
-			<a href="ajoutProduit.html">Ajouter un produit</a>
+			<form action="" onsubmit="return false" name="modifProduit" id="modifProduit">
+				<div>
+					<label for="numero">Numéro</label>
+					<span><input type="text" name="numero" id="numero"></span>
+				</div>
+				<div>
+					<label for="titre">Titre</label>
+					<span><input type="text" name="titre" id="titre"></span>
+				</div>
+				<div>
+					<label for="prix">Prix</label>
+					<span><input type="number" min="0" step=".01" name="prix" id="prix"></span>
+				</div>
+				<div>
+					<label for="description">Description</label>
+					<span><textarea name="description" id="description" cols="30" rows="10"></textarea></span>
+				</div>
+				<div><button>Ajouter</button></div>
+			</form>
 		</div>
 		<footer>
 			<span><img src="images/logoABR.svg" alt=""></span><strong>&copy; Au Bon Rabais</strong>
