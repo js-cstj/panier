@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Au Bon Rabais</title>
+	<link rel="stylesheet" href="./css/style.css" />
+	<script type="module">
+		import App from "./src/App.js";
+		var id = location.search.slice(4);
+		App.mainModifProduit(id);
+	</script>
+</head>
+
+<body class="">
+	<div id="interface">
+		<header>
+			<h1><a href="index.html"><img src="images/logoABR.svg" alt=""></a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="#">Produits</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Trouver un magasin</a></li>
+				<li><a href="#">Nous joindre</a></li>
+				<li id="lien-panier"><a href="#">Mon panier</a></li>
+			</ul>
+		</nav>
+		<div class="body" id="app">
+			<form action="" id="modifProduit" name="modifProduit" onsubmit="return false">
+				<img id="imageProduit" src="" alt="">
+				<div>
+					<label for="numero">Numéro</label>
+					<span><input type="text" name="numero" id="numero" value="absgjerhjgiur"></span>
+				</div>
+				<div>
+					<label for="titre">Titre</label>
+					<span><input type="text" name="titre" id="titre" value="Un cossin"></span>
+				</div>
+				<div>
+					<label for="description">Description</label>
+					<span><textarea name="description" id="description" cols="30" rows="10">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</textarea></span>
+				</div>
+				<div>
+					<label for="prix">Prix</label>
+					<span><input type="number" min="0" step=".01" name="prix" id="prix" value="999.99"></span>
+				</div>
+				<div><button>Ajouter</button></div>
+			</form>
+		</div>
+		<footer>
+			<span><img src="images/logoABR.svg" alt=""></span><strong>&copy; Au Bon Rabais</strong>
+		</footer>
+
+	</div>
+</body>
+
+</html>
