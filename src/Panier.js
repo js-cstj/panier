@@ -100,6 +100,7 @@ export default class Panier {
 		fetch(`http://localhost:8000/api/panier/${client_id}`)
 			.then(response => response.json())
 			.then(panier => {
+				console.log(panier);
 				for (let i = 0; i < panier.produits.length; i += 1) {
 					var produit = panier.produits[i];
 					var li = ul.appendChild(this.html_panier_produit(produit));
@@ -107,9 +108,8 @@ export default class Panier {
 				}
 				var total = ul.appendChild(document.createElement("li"));
 				total.classList.add("total");
-				total.innerHTML = `Total: ${panier.total.toFixed(2)} $`;
+				total.innerHTML = `Total: ${(panier.total*1).toFixed(2)} $`;
 			})
-			.catch(error => console.error(error));
 		return resultat;
 	}
 	static html_panier_produit(objProduit) {
@@ -125,10 +125,10 @@ export default class Panier {
 		quantite.innerHTML = objProduit.quantite;
 		var prix = resultat.appendChild(document.createElement("div"));
 		prix.classList.add("prix");
-		prix.innerHTML = objProduit.prix.toFixed(2) + " $";
+		prix.innerHTML = (objProduit.prix * 1).toFixed(2) + " $";
 		var sous_total = resultat.appendChild(document.createElement("div"));
 		sous_total.classList.add("sous-total");
-		sous_total.innerHTML = objProduit.sous_total.toFixed(2) + " $";
+		sous_total.innerHTML = (objProduit.sous_total*1).toFixed(2) + " $";
 
 		return resultat;
 	}
