@@ -43,6 +43,7 @@ export default class Produit {
 		var bouton = body.appendChild(document.createElement("button"));
 		bouton.type = "button";
 		bouton.innerHTML = "Ajouter au panier";
+		bouton.classList.add("ajouter");
 		bouton.dataset.id = objProduit.id;
 		bouton.dataset.titre = objProduit.titre;
 		return resultat;
