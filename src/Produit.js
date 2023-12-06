@@ -39,7 +39,7 @@ export default class Produit {
 		description.innerHTML = objProduit.description;
 		var prix = body.appendChild(document.createElement("p"));
 		prix.classList.add("prix");
-		prix.innerHTML = objProduit.prix.toFixed(2) + " $";
+		prix.innerHTML = (objProduit.prix * 1).toFixed(2) + " $";
 		var bouton = body.appendChild(document.createElement("button"));
 		bouton.type = "button";
 		bouton.innerHTML = "Ajouter au panier";
