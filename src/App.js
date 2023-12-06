@@ -6,28 +6,25 @@ export default class App {
 	 * Méthode principale. Sera appelée après le chargement de la page.
 	 */
 	static main() {
-		Produit.main().then(produits => {
+		Produit.main().then(() => {
 			Panier.main();
 		});
 		if (!localStorage.client_id) {
 			document.body.appendChild(this.html_login());
-			document.getElementById("login").addEventListener("submit", e => {
+			const formLogin = document.getElementById("login");
+			formLogin.addEventListener("submit", e => {
 				e.preventDefault();
-				var nom = document.getElementById("nom").value;
-				var courriel = document.getElementById("courriel").value;
-				fetch("http://localhost:8000/api/clients", {
+				const formData = new FormData(formLogin);
+				const options = {
 					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify({ nom: nom, courriel: courriel })
-				})
+					body: formData
+				};
+				fetch("http://localhost:8000/api/clients", options)
 					.then(response => response.json())
 					.then(client => {
 						localStorage.client_id = client.id;
 						document.getElementById("backdrop").remove();
-					})
-					.catch(error => console.error(error));
+					});
 			});
 		}
 	}
