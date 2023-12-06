@@ -62,6 +62,20 @@ if (array_key_exists('_method', $_GET) === true) {
 	$_SERVER['REQUEST_METHOD'] = strtoupper(trim($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE']));
 }
 
+ArrestDB::Serve('GET', '/panier/(#any)', function ($id) {
+	$query = 'SELECT id,nom,courriel,total FROM "panier_clients" WHERE "id" = ?;';
+
+	$client = ArrestDB::Query($query, $id);
+	if ($client === false) {
+		return ArrestDB::Reply(ArrestDB::$HTTP[404]);
+	} else if (empty($client) === true) {
+		return ArrestDB::Reply(ArrestDB::$HTTP[204]);
+	}
+	$client = array_shift($client);
+	$query = 'SELECT produit_id, numero, titre, prix, quantite, sous_total FROM "panier_produits" WHERE "client_id" = ?;';
+	$client['produits'] = ArrestDB::Query($query, $id);
+	return ArrestDB::Reply($client);
+});
 ArrestDB::Serve('GET', '/(#any)/(#any)/(#any)', function ($table, $id, $data) {
 	$query = array(
 		sprintf('SELECT * FROM "%s"', $table),
@@ -261,6 +275,7 @@ ArrestDB::Serve('POST', '/(#any)', function ($table) {
 			$result = ArrestDB::$HTTP[409];
 		} else {
 			$result = ArrestDB::$HTTP[201];
+			$result['id'] = ArrestDB::Query()->lastInsertId();
 		}
 	}
 

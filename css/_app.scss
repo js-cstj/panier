@@ -1,5 +1,10 @@
 #app {
-	padding: 0;
+	padding: 1em;
+	background-color: hsl(var(--h), 50%, 90%);
+	>h1 {
+		font-size: 3em;
+		text-align: center;
+	}
 }
 #lien-panier a::before {
 	content: "🛒\fe0e";

@@ -1,7 +1,30 @@
 :root {
-	--largeur: 960px;
+	--largeur: 720px;
 	--h: 50;
 	--s: 100%;
 	--l: 50%;
 	--h-2: 195;
+
+	@media screen and (width < 720px) {
+		--largeur: auto;
+
+	}
+}
+
+@mixin bouton {
+	background-color: hsl(var(--h), var(--s), var(--l));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 3em;
+	line-height: 1;
+	border: none;
+	border-radius: .25em;
+	cursor: pointer;
+
+	&:hover {
+		background-color: hsl(calc(var(--h) - 30), var(--s), calc(var(--l)));
+		color: #fff;
+	}
 }

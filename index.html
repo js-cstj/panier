@@ -5,6 +5,10 @@
 	<meta charset="UTF-8" />
 	<title>Au Bon Rabais</title>
 	<link rel="stylesheet" href="./css/style.css" />
+	<script type="module">
+		import App from "./src/App.js";
+		App.main();
+	</script>
 </head>
 
 <body class="">
@@ -12,53 +16,81 @@
 		<header>
 			<h1><a href="index.html"><img src="images/logoABR.svg" alt=""></a></h1>
 		</header>
-		<nav>
+		<nav tabindex="1">
 			<ul>
 				<li><a href="index.html">Accueil</a></li>
 				<li><a href="#">Produits</a></li>
 				<li><a href="#">Services</a></li>
 				<li><a href="#">Trouver un magasin</a></li>
 				<li><a href="#">Nous joindre</a></li>
-				<li id="lien-panier"><a href="#">Mon panier</a></li>
+				<li><a href="#" id="lien-panier">Mon panier</a></li>
 			</ul>
 		</nav>
 		<div class="body" id="app">
-			<div class="couche gauche" style="background-color: white;">
-				<div class="contenant">
-					<div class="contenu" style="aspect-ratio: auto;">
-						<h2><a href="etape1.html">Vers l'étape 1</a></h2>
-					</div>
-					<div class="contenu" style="aspect-ratio: auto;">
-						<h2><a href="etape2.html">Vers l'étape 2</a></h2>
-					</div>
-				</div>
-			</div>
-			<div class="couche droite">
-				<div class="contenant">
-					<div class="contenu">
-						<h2>On est là pour vous</h2>
-						<p>Découvrez l'expérience exceptionnelle que nous vous réservons, où chaque détail est pensé pour votre confort et votre satisfaction. Nous sommes à votre service, prêts à vous offrir la qualité et l'attention que vous méritez.</p>
-						<p>En plus de notre engagement envers votre bien-être, nous sommes également déterminés à vous offrir des solutions sur mesure pour répondre à vos besoins spécifiques. Que ce soit pour des conseils avisés, un soutien personnalisé ou des produits exceptionnels, nous sommes toujours à votre écoute.</p>
-					</div>
-					<img src="images/hoodie.jpg" alt="">
-				</div>
-			</div>
-			<div class="couche gauche">
-				<div class="contenant">
-					<img src="images/souris.jpg" alt="">
-					<div class="contenu">
-						<h2>On a tout pour vous</h2>
-						<p>Nous mettons à votre disposition tout ce dont vous avez besoin pour réaliser vos rêves et atteindre vos objectifs. Notre engagement envers vous est sans limites, et nous sommes là pour vous accompagner à chaque étape de votre parcours vers le succès.</p>
-						<p>Au-delà de notre vaste gamme de produits et de services de haute qualité, nous croyons en la puissance de la communauté. Rejoignez notre réseau de passionnés et d'experts qui partagent vos intérêts et vos aspirations. Ensemble, nous pouvons créer un avenir prometteur où toutes vos ambitions deviennent réalité.</p>
-					</div>
-				</div>
-			</div>
+			<h1>Nos produits</h1>
+			<div id="produits"></div>
 		</div>
 		<footer>
 			<span><img src="images/logoABR.svg" alt=""></span><strong>&copy; Au Bon Rabais</strong>
 		</footer>
 
 	</div>
+	<!-- <div id="backdrop">
+		<form action="" id="login" name="login" class="popup">
+			<h1>Connexion</h1>
+			<label for="nom">Nom</label>
+			<input type="text" name="nom" id="nom" required>
+			<label for="courriel">Courriel</label>
+			<input type="email" name="courriel" id="courriel" required>
+			<button type="submit">Entrer</button>
+		</form>
+	</div> -->
+	<!-- <div id="backdrop">
+		<form action="" id="ajout_panier" name="ajout_panier" class="popup">
+			<h1>Ajouter au panier</h1>
+			<label for="quantite">Escargots</label>
+			<input type="number" name="quantite" id="quantite" value="1" size="3" required>
+			<input type="hidden" name="id" id="id" value="1">
+			<input type="hidden" name="client_id" id="client_id" value="1">
+			<div>
+				<button type="submit">Ajouter</button>
+				<button type="button" id="annuler">Annuler</button>
+			</div>
+		</form>
+	</div> -->
+	<!-- <div id="backdrop">
+		<div id="panier" class="popup">
+			<h1>Panier</h1>
+			<ul>
+				<li class="produit"><img src="images/produits/PlkN_pN2ryc/64x64.webp" alt="Animal de compagnie">
+					<div>Animal de compagnie</div>
+					<div class="quantite">1</div>
+					<div class="prix">100.00 $</div>
+					<div class="sous-total">100.00 $</div>
+				</li>
+				<li class="produit"><img src="images/produits/FhWCdE9qpN0/64x64.webp" alt="Du talent">
+					<div>Du talent</div>
+					<div class="quantite">1</div>
+					<div class="prix">1425.00 $</div>
+					<div class="sous-total">1425.00 $</div>
+				</li>
+				<li class="produit"><img src="images/produits/X9qAePmK7Zs/64x64.webp" alt="Machine à rêves">
+					<div>Machine à rêves</div>
+					<div class="quantite">1</div>
+					<div class="prix">999.99 $</div>
+					<div class="sous-total">999.99 $</div>
+				</li>
+				<li class="produit"><img src="images/produits/ZCoqcrWp9GY/64x64.webp" alt="Une personnalité">
+					<div>Une personnalité</div>
+					<div class="quantite">4</div>
+					<div class="prix">52.00 $</div>
+					<div class="sous-total">208.00 $</div>
+				</li>
+				<li class="total">Total: 2732.99 $</li>
+			</ul>
+			<div><button type="button" id="fermer">Fermer</button><button type="button" id="acheter">Acheter</button></div>
+		</div>
+	</div> -->
 </body>
 
 </html>

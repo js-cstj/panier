@@ -2,11 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
 :root {
-  --largeur: 960px;
+  --largeur: 720px;
   --h: 50;
   --s: 100%;
   --l: 50%;
   --h-2: 195;
+}
+@media screen and (width < 720px) {
+  :root {
+    --largeur: auto;
+  }
 }
 
 html {
@@ -54,6 +59,11 @@ img {
 #interface > header img {
   display: block;
 }
+@media screen and (width < 720px) {
+  #interface > header img {
+    height: 5em;
+  }
+}
 #interface > header h1 {
   margin: 0;
 }
@@ -65,7 +75,12 @@ img {
 }
 
 #app {
-  padding: 0;
+  padding: 1em;
+  background-color: hsl(var(--h), 50%, 90%);
+}
+#app > h1 {
+  font-size: 3em;
+  text-align: center;
 }
 
 #lien-panier a::before {
@@ -103,6 +118,34 @@ img {
   justify-content: center;
   height: 2em;
   padding: 0 1em;
+}
+@media screen and (width < 720px) {
+  #interface > nav::before {
+    content: "☰";
+    width: 1.5em;
+    height: 1.5em;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    margin-top: -1.5em;
+    right: 0em;
+    line-height: 0.8;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #interface > nav:not(:focus-within) ul {
+    display: none;
+  }
+  #interface > nav ul {
+    font-size: 1.5em;
+    position: absolute;
+    right: 0;
+    background-color: hsl(var(--h), 100%, 30%);
+    grid-auto-flow: row;
+  }
 }
 
 div.couche p {
@@ -159,92 +202,171 @@ div.couche .contenu {
   -webkit-backdrop-filter: blur(5px) saturate(0.5) contrast(0.3) brightness(0.5);
           backdrop-filter: blur(5px) saturate(0.5) contrast(0.3) brightness(0.5);
 }
-
-body:not(.affiche-panier) #backdrop {
-  display: none;
-}
-
-#panier {
-  width: 500px;
+#backdrop > * {
   background-color: white;
-  border-radius: 1em;
-  line-height: 1;
+  border-radius: 0.5em;
   padding: 1em;
-  display: grid;
-  position: relative;
-  box-shadow: 0.5em 1em 2em rgba(0, 0, 0, 0.5333333333);
 }
-#panier span.close {
-  position: absolute;
-  right: 0.5em;
-  top: 0.5em;
-}
-#panier span.close:hover::before {
-  color: black;
-}
-#panier span.close::before {
-  content: "×";
-  display: block;
-  border: 1px solid;
-  color: #ccc;
-  width: 1em;
-  height: 1em;
+#backdrop > * h1 {
+  grid-column: 1/-1;
   text-align: center;
-  border-radius: 100%;
-  line-height: 0.75em;
-  text-indent: 0.1em;
+  line-height: 1;
+  font-size: 1.5em;
 }
-#panier h1 {
-  margin: 0;
+#backdrop > * button {
+  background-color: hsl(var(--h), var(--s), var(--l));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 3em;
+  line-height: 1;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
 }
-#panier .item {
-  padding: 0.5em;
+#backdrop > * button:hover {
+  background-color: hsl(calc(var(--h) - 30), var(--s), calc(var(--l)));
+  color: #fff;
+}
+#backdrop > * > button {
+  grid-column: 1/-1;
+}
+
+#ajout_panier {
   display: grid;
-  grid-template-columns: 125px repeat(3, 1fr);
-  grid-template-rows: auto 1fr auto;
-  grid-gap: 0.5em 1em;
+  grid-template-columns: 1fr 5em;
+  gap: 1em;
+  width: 20em;
 }
-#panier .item:nth-child(even) {
-  background-color: #f0f0f0;
+#ajout_panier > div {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
 }
-#panier .item:nth-child(odd) {
-  background-color: #f8f8f8;
+#ajout_panier > div button:last-child {
+  background-color: transparent;
+  color: hsl(var(--h), var(--s), calc(var(--l) - 20%));
+  border: 3px solid;
 }
-#panier .item img {
+#ajout_panier input {
+  text-align: right;
+}
+
+#panier ul {
+  list-style: none;
+  padding: 1em 0;
+  margin: 0;
+  grid-template-columns: auto 1fr 3em 5em 5em;
+  display: grid;
+  gap: 0.5em 1em;
+}
+#panier ul img {
+  width: 2em;
+  height: 2em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#panier ul .quantite,
+#panier ul .prix,
+#panier ul .total,
+#panier ul .sous-total {
+  text-align: right;
+}
+#panier ul li {
+  display: contents;
+}
+#panier ul .total {
+  display: block;
+  grid-column: 1/-1;
+  text-align: right;
+  border-top: solid 1px;
+}
+#panier > div {
+  display: grid;
+  grid-template-columns: 10em 10em;
+  justify-content: space-between;
+}
+
+#produits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 16em);
+  gap: 1em;
   width: 100%;
-  grid-row: 1/-1;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
-#panier .item div.titre {
-  grid-row: 1;
-  grid-column: 2/-1;
+#produits .produit {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  background-color: #f8f8f8;
+  border-radius: 0.5em;
+  overflow: hidden;
+  box-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.3);
+}
+#produits .produit h2 {
+  font-size: 1.2em;
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
+#produits figcaption {
+  font-size: 0.7em;
+  margin-top: -2em;
+  margin-right: 1em;
+  text-align: right;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+#produits img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#produits .prix {
+  font-size: 1.2em;
   font-weight: bold;
+  margin-top: auto;
 }
-#panier .item div.description {
-  grid-row: 2;
-  grid-column: 2/-1;
+#produits .body {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
 }
-#panier .item div.prix {
-  grid-row: 3;
-  grid-column: 2;
-  text-align: right;
+#produits button {
+  background-color: hsl(var(--h), var(--s), var(--l));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 3em;
+  line-height: 1;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
 }
-#panier .item div.quantite {
-  grid-row: 3;
-  grid-column: 3;
-  text-align: right;
+#produits button:hover {
+  background-color: hsl(calc(var(--h) - 30), var(--s), calc(var(--l)));
+  color: #fff;
 }
-#panier .item div.total {
-  grid-row: 3;
-  grid-column: 4;
-  text-align: right;
+#produits .description {
+  font-size: 0.9em;
+  line-height: 1.2;
 }
-#panier .grand-total {
-  text-align: right;
-  font-size: larger;
-  font-weight: bold;
-  margin-top: 0.5em;
+
+#login {
+  display: grid;
+  grid-template-columns: auto 15em;
+  gap: 1em;
 }
-#panier .grand-total::before {
-  content: "Grand total : ";
-  font-weight: normal;
+#login h1 {
+  grid-column: 1/-1;
+  text-align: center;
+  line-height: 1;
+  font-size: 1.5em;
 }

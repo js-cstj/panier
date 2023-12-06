@@ -23,4 +23,33 @@
 		height: 2em;
 		padding: 0 1em;
 	}
+	@media screen and (width < 720px) {
+		&::before {
+			//hamburger
+			content: "☰";
+			width: 1.5em;
+			height: 1.5em;
+			color: white;
+			font-size: 2em;
+			cursor: pointer;
+			position: absolute;
+			margin-top: -1.5em;
+			right: 0em;
+			line-height: .8;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		&:not(:focus-within) ul {
+			display: none;
+		}
+		ul {
+			font-size: 1.5em;
+			position: absolute;
+			right: 0;
+			background-color: hsl(var(--h), 100%, 30%);
+			grid-auto-flow: row;
+		}
+	}
 }

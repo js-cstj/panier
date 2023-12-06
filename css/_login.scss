@@ -1,0 +1,11 @@
+#login {
+	display: grid;
+	grid-template-columns: auto 15em;
+	gap: 1em;
+	h1 {
+		grid-column: 1 / -1;
+		text-align: center;
+		line-height: 1;
+		font-size: 1.5em;
+	}
+}

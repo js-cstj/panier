@@ -1,0 +1,111 @@
+
+#ajout_panier {
+	display: grid;
+	grid-template-columns: 1fr 5em;
+	gap: 1em;
+	width: 20em;
+	> div {
+		grid-column: 1 / -1;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1em;
+		button:last-child {
+			background-color: transparent;
+			color: hsl(var(--h), var(--s), calc(var(--l) - 20%));
+			border: 3px solid;
+		}
+	}
+	input {
+		text-align: right;
+		// padding-right: 1em;
+	
+	}
+}
+#panier {
+	width: 500px;
+	background-color: white;
+	border-radius: 1em;
+	line-height: 1;
+	padding: 1em;
+	display: grid;
+	position: relative;
+	box-shadow: .5em 1em 2em #0008;
+	span.close {
+		position: absolute;
+		right: .5em;
+		top:.5em;
+		&:hover::before {
+			color:black
+		}
+		
+		&::before {
+			content:"×";
+			display: block;
+			border: 1px solid;
+			color: #ccc;
+			width: 1em;
+			height: 1em;
+			text-align: center;
+			border-radius: 100%;
+			line-height: .75em;
+			text-indent: .1em;
+		}
+	}
+	h1 {
+		margin: 0;
+	}
+	.item {
+		&:nth-child(even) {
+			background-color: #f0f0f0;
+		}
+		&:nth-child(odd) {
+			background-color: #f8f8f8;
+		}
+		padding: .5em;
+		display: grid;
+		grid-template-columns: 125px repeat(3, 1fr);
+		grid-template-rows: auto 1fr auto;
+		grid-gap: .5em 1em;
+
+		img {
+			width: 100%;
+			grid-row: 1 / -1;
+			// border: 1px solid black;
+		}
+		div.titre {
+			grid-row: 1;
+			grid-column: 2 / -1;
+			font-weight: bold;
+
+		}
+		div.description {
+			grid-row: 2;
+			grid-column: 2 / -1;
+		}
+		div.prix {
+			grid-row: 3;
+			grid-column: 2;
+			text-align: right;
+		}
+		div.quantite {
+			grid-row: 3;
+			grid-column: 3;
+			text-align: right;
+		}
+		div.total {
+			grid-row: 3;
+			grid-column: 4;
+			text-align: right;
+		}
+	}
+	.grand-total {
+		text-align: right;
+		font-size: larger;
+		font-weight: bold;
+		margin-top: .5em;
+		&::before {
+			content: "Grand total : ";
+			font-weight: normal;
+		}
+	}
+}
