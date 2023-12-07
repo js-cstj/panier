@@ -21,11 +21,13 @@ export default class Panier {
 	 * @returns HTMLElement Le HTML du formulaire d'ajout au panier (voir le fichier index.html)
 	 */
 	static form_ajout_panier(id, titre) {
+		// Le id du client est stocké dans localStorage.client_id
+		var client_id = localStorage.client_id;
 		// Rite de passage. On commence par créer le HTML du formulaire d'ajout au panier
 		
 		// Fin du rite de passage
 
-		// On ajoute un écouteur d'événement "click" sur le formulaire qui détruit le formulaire (et le backdrop)
+		// On ajoute un écouteur d'événement "click" sur le bouton annuler qui détruit le formulaire (et le backdrop)
 		
 		// On ajoute un écouteur d'événement "submit" sur le formulaire
 			// Envoie les données du formulaire à l'adresse http://localhost:8000/api/client_produit
